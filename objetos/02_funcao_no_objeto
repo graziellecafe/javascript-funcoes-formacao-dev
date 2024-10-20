@@ -1,0 +1,10 @@
+const produto = { 
+  nome: 'Macbook', 
+  preco: 3200, 
+  desconto: 0.2, 
+  precoComDesconto: function () { 
+    return produto.preco - (produto.preco * produto.desconto);
+  }
+}
+
+console.log(produto.precoComDesconto()); 

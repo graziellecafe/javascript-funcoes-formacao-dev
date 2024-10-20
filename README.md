@@ -127,3 +127,106 @@ function paraCadaElemento(elemento, indice, array) {
 nome.forEach(paraCadaElemento); 
 // resposta: Ana 0 [ 'Ana', 'Bia', 'Carlos', 'Daniel', 'Rafael' ]
 ```
+
+
+## 📌 Objetos 
+- Símbolo das chaves 
+- Par: chave / valor   
+
+Exemplo: 
+```js
+const produtos = { 
+  nome: 'Caneta Bic Preta', 
+  preco: 9.99, 
+  desconto: 0.2, 
+  altoCusto: false
+}
+
+console.log(`${produtos.nome}``); 
+```
+
+### Objeto com método 
+```js
+const produto = { 
+  nome: 'Macbook', 
+  preco: 3200, 
+  desconto: 0.2, 
+  precoComDesconto: function () { 
+    return produto.preco - (produto.preco * produto.desconto);
+  }
+}
+
+const produto = { 
+  nome: 'Macbook', 
+  preco: 3200, 
+  desconto: 0.2, 
+  precoComDesconto: function () { 
+    return this.preco - (this.preco * this.desconto);
+  }
+}
+
+console.log(produto.precoComDesconto()); 
+```
+
+- Objetos têm atributos e métodos
+
+Exemplo 02: 
+```js 
+const cliente = { 
+  codigo: 58934, 
+  nome: 'Ana Medeiros Albuquerque', 
+  vip: true, 
+  endereco: { 
+    logradouro: 'Rua XYZ', 
+    numero: 987, 
+    complemento: 'Apto 302, Bloco C', 
+    pontosRef: 'Hospital São Pedro'
+  }, 
+  filhos: { 
+    { nome: 'Grazielle Café', idade: 30 }, 
+    { nome: 'Jéssica Ferreira;, idade: 28}, 
+  }
+}
+
+console.log(cliente.filhos[1].nome); 
+```
+
+## Função Construtora 
+```js 
+// Função construtora -> Criar objetos 
+// 1. Iniciar com letra maiúscula 
+// 2. Criar utilizando a palavra new 
+// 3. Usar o this para acrescentar atributos e métodos no objeto 
+
+function data(dia, mes, ano) {
+  console.log(dia, mes, ano)
+}
+
+const data1 = new Data(20, 10, 2024); 
+console.log(data1); 
+```
+
+```js
+class Data { 
+  dia = 1 
+  mes = 1
+  ano = 1970
+}
+
+const data1 = new Data()
+console.log(data1)
+// Resultado: 
+// Data { dia: 1, mes: 1, ano: 1970 } 
+```
+
+```js
+// Construtor 
+constructor(dia, mes, ano) { 
+  this.dia = dia
+  this.mes = mes 
+  this.ano = ano
+}
+
+formatar () { 
+  return `${this.dia}/${this.mes}/${this.ano}``
+}
